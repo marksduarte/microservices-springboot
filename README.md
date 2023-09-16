@@ -30,5 +30,5 @@ $ ./mvnw clean package
 ```
 - Executar as aplicações:
 ```
-$ java -jar target/config-server-0.0.1-SNAPSHOT.jar
+$ java -jar target/service-name.jar
 ```
