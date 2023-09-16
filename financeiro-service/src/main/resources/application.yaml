@@ -1,0 +1,18 @@
+server:
+  port: 8200
+  servlet:
+    context-path: /financeiro
+spring:
+  application:
+    name: financeiro-service
+  config:
+    import:
+      - optional:configserver:http://localhost:8888/
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization:
+      fail-on-empty-beans: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

@@ -1,0 +1,71 @@
+## SERVER
+server:
+  port: 8300
+  servlet:
+    context-path: /cnbs
+  error:
+    include-stacktrace: never
+## EUREKA
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+## SPRING BOOT
+spring:
+  main:
+    allow-circular-references: false
+  output:
+    ansi:
+      enabled: always
+  application:
+    name: cnbs-service
+  config:
+    import:
+      - optional:configserver:http://localhost:8888/
+  jackson:
+    time-zone: America/Sao_Paulo
+    locale: pt_BR
+    date-format: com.fasterxml.jackson.databind.util.StdDateFormat
+    default-property-inclusion: NON_NULL
+    deserialization:
+      fail-on-unknown-properties: false
+    serialization:
+      fail-on-empty-beans: false
+      write-self-references-as-null: true
+## ACTUATOR
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+## LOG
+logging:
+  file:
+    name: ./logs/cnbs-service.log
+    path: logs
+  level:
+    root: info
+    web: info
+    br.com: info
+  charset:
+    file: utf-8
+  logback:
+    rollingpolicy:
+      clean-history-on-start: true
+      max-file-size: 10MB
+## APPLICATION
+cnbs-serpro:
+  url: 'https://cnbs.estaleiro.serpro.gov.br/cnbs-api'
+  url-item: '/item/v1/hint'
+  url-material: '/material/v1'
+  url-servico: '/servico/v1'
+
+  url-material-por-palavra: '${cnbs-serpro.url-material}/palavra'
+  url-material-por-codigo: '${cnbs-serpro.url-material}/recuperaDadosItemMaterialPorCodigo' # codigo_item_material
+  url-material-classificacao-contabil-por-pdm: '${cnbs-serpro.url-material}/classificacaoContabilPorCodigoPdm' # codigo_pdm
+  url-material-caracteristica-valor-por-pdm: '${cnbs-serpro.url-material}/materialCaracteristcaValorporPDM' # codigo_pdm
+  url-material-caracteristicas-por-pdm: '${cnbs-serpro.url-material}/caracteristicaPorCodigoPdm' # codigo_pdm
+
+  url-servico-por-palavra: '${cnbs-serpro.url-servico}/palavra'
+  url-servico-por-codigo: '${cnbs-serpro.url-servico}/dadosServicoPorCodigo' # codigo_servico
+  url-servico-classificacao-contabil-por-codigo: '${cnbs-serpro.url-servico}/classificacaoContabilPorCodigo' # codigo_servico

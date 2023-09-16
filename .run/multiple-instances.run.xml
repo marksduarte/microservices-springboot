@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="multiple-instances" type="CompoundRunConfigurationType">
+    <toRun name="CnbsSerproClient1" type="SpringBootApplicationConfigurationType" />
+    <toRun name="CnbsSerproClient2" type="SpringBootApplicationConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
