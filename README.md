@@ -10,8 +10,8 @@
 <h4 align="center">Exemplos de microsserviços utilizando <a href="https://spring.io">spring boot</a>.</h4>
 
 As instâncias de microsserviços são gerenciadas pelo [naming-server](https://github.com/marksduarte/microservices-springboot/tree/main/naming-server),
-suas rotas monitoradas e redirecionadas com o loadbalancer do [api-gateway](https://github.com/marksduarte/microservices-springboot/tree/main/api-gateway).
-A comunicação entre os serviços é feita utilizando o proxy do OpenFeign e seus arquivos de configuração obtidos por intermédio do [config-server](https://github.com/marksduarte/microservices-springboot/tree/main/config-server).
+suas rotas monitoradas e redirecionadas com o loadbalancer do [api-gateway](https://github.com/marksduarte/microservices-springboot/tree/main/api-gateway).  
+Já a comunicação entre os serviços é feita utilizando o proxy do OpenFeign e seus arquivos de configuração obtidos por intermédio do [config-server](https://github.com/marksduarte/microservices-springboot/tree/main/config-server).
 
 ## Tecnologias
 
