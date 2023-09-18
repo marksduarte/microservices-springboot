@@ -13,21 +13,19 @@ import java.util.function.Function;
 @Configuration
 public class ApiGatewayConfig {
 
-    @Bean
-    public RouteLocator gatewayRouter(RouteLocatorBuilder builder) {
-        Function<PredicateSpec, Buildable<Route>> routeGet = p -> p.path("/get").uri("http://httpbin.org:80");
-        /* Faz o redirecionamento do nome_servico/context_path para somente o nome_servico no load balance.
-        Ex: http://localhost:8765/cnbs-serpro-client/itens?query=carro */
-        Function<PredicateSpec, Buildable<Route>> routeCnbs = r -> r.path("/cnbs/**").uri("lb://cnbs-service");
-        Function<PredicateSpec, Buildable<Route>> routeMatricula = r -> r.path("/matricula/**").uri("lb://matricula-service");
-        Function<PredicateSpec, Buildable<Route>> routeFinanceiro = r -> r.path("/financeiro/**").uri("lb://financeiro-service");
-        Function<PredicateSpec, Buildable<Route>> routeConfigServer = r -> r.path("/config-server/**").uri("lb://config-server");
-        return builder.routes()
-                .route(routeGet)
-                .route(routeCnbs)
-                .route(routeMatricula)
-                .route(routeFinanceiro)
-                .route(routeConfigServer)
-                .build();
-    }
+//    @Bean
+//    public RouteLocator gatewayRouter(RouteLocatorBuilder builder) {
+//        Function<PredicateSpec, Buildable<Route>> routeGet = p -> p.path("/get").uri("http://httpbin.org:80");
+//        /* Faz o redirecionamento do nome_servico/context_path para somente o nome_servico no load balance.
+//        Ex: http://localhost:8765/cnbs-serpro-client/itens?query=carro */
+//        Function<PredicateSpec, Buildable<Route>> routeCnbs = r -> r.path("/cnbs/**").uri("lb://cnbs-service");
+//        Function<PredicateSpec, Buildable<Route>> routeMatricula = r -> r.path("/matricula/**").uri("lb://matricula-service");
+//        Function<PredicateSpec, Buildable<Route>> routeFinanceiro = r -> r.path("/financeiro/**").uri("lb://financeiro-service");
+//        return builder.routes()
+//                .route(routeGet)
+//                .route(routeCnbs)
+//                .route(routeMatricula)
+//                .route(routeFinanceiro)
+//                .build();
+//    }
 }

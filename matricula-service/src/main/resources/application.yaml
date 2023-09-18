@@ -7,7 +7,7 @@ spring:
     name: matricula-service
   config:
     import:
-      - optional:configserver:http://localhost:8765/config-server
+      - optional:configserver:http://localhost:8888/
   jackson:
     default-property-inclusion: NON_NULL
     serialization:

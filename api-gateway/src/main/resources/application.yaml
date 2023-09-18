@@ -3,12 +3,25 @@ server:
 spring:
   application:
     name: api-gateway
-#  cloud: ## desabilitado pois a configuração de rota será feita em ApiGatewayConfig.
-#    gateway:
-#      discovery:
-#        locator:
-#          enabled: true
-#          lower-case-service-id: true
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: cnbs-service
+          uri: lb://cnbs-service
+          predicates:
+            - Path=/cnbs/**
+        - id: matricula-service
+          uri: lb://matricula-service
+          predicates:
+            - Path=/matricula/**
+        - id: financeiro-service
+          uri: lb://financeiro-service
+          predicates:
+            - Path=/financeiro/**
+
 eureka:
   client:
     service-url:
