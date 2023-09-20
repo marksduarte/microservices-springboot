@@ -38,6 +38,9 @@ management:
     web:
       exposure:
         include: '*'
+  tracing:
+    sampling:
+      probability: 1.0
 ## LOG
 logging:
   file:
